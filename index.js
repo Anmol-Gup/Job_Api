@@ -7,17 +7,18 @@ const router=require('./jobs_router')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-// Allow requests from 'http://127.0.0.1:5500'
+// Allow requests from 'https://jobsearch-alpha.vercel.app/'
 const corsOptions = {
-    origin: 'http://127.0.0.1:5500',
+    origin: 'https://jobsearch-alpha.vercel.app/',
     methods: 'DELETE' // Allow only DELETE requests
 };
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+
 app.use(express.json())
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.header('Access-Control-Allow-Origin', 'https://jobsearch-alpha.vercel.app/');
     // Add other CORS headers as needed
     next();
 });
