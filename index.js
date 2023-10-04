@@ -10,18 +10,13 @@ const bodyParser = require('body-parser');
 // Allow requests from 'https://jobsearch-alpha.vercel.app/'
 const corsOptions = {
     origin: 'https://jobsearch-alpha.vercel.app/',
-    methods: 'DELETE' // Allow only DELETE requests
+    methods: ['GET','POST','DELETE'] // Allow only DELETE requests
 };
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 app.use(express.json())
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://jobsearch-alpha.vercel.app/');
-    // Add other CORS headers as needed
-    next();
-});
 
 // Register router
 app.use(router)
