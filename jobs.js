@@ -39,7 +39,7 @@ const job_schema=mongoose.Schema({
     },
     postedAt:{
         type:Date,
-        default:Date()
+        default:Date.now
     }
 })
 
